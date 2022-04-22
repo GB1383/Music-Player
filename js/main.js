@@ -9,11 +9,11 @@ const title = document.querySelector("h2");
 const cover = document.getElementById("disc");
 
 
-const songs = ["Backplate", "Elevation", "Mirrors", "Olympus"];
+const songs = ["Backplate", "Elevation", "Olympus"];
 
 let songIndex = 0;
 
-loadSong = (songs[songIndex]);
+loadSong(songs[songIndex]);
 
 function loadSong(song) {
     title.innerText = song;
@@ -51,7 +51,6 @@ function prevSong () {
     playSong();
 }
 
-
 function nextSong() {
 
     songIndex++;
@@ -66,8 +65,8 @@ function nextSong() {
 
 
 function updateProgress(e) {
-    const {currentTime, duration } = e.srcElement;
-    const progressPercent = (currentTime/duration) * 100;
+    const { currentTime, duration } = e.srcElement;
+    const progressPercent = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}%`;
 }
 
@@ -80,8 +79,6 @@ function setProgress(e) {
 
 
 }
-
-
 
 play.addEventListener("click", (isPlaying) => {
     isPlaying = wrapper.classList.contains("play");
@@ -103,5 +100,3 @@ audio.addEventListener("timeupdate", updateProgress);
 progressContainer.addEventListener("click", setProgress);
 
 audio.addEventListener("ended", nextSong);
-
-
